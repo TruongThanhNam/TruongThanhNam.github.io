@@ -33,13 +33,19 @@
         FB.getLoginStatus(function (response) {
             // statusChangeCallback(response);
             // AppAccessToken: 159426692859019|rgVshl-dozUK0ZAZ41WAfAeP6K4
+            // EAACQZC2tlRIsBABisCPuZBVLtZCspOMmIZB5ZCYHDwh8lrk8skwvRg77sFKVePDxDQb12cbcxQxkCFVQE0b8ZA8W4SafLAmPZBNQYZAW0FLFLmHihgr4Xp6KLm0o7YcCQm5gRgXyVWai9CsWrRfDlQvZABWsk7H0UCm7UFFjROmXnFApzPWMUzyXb2ZAq6N8TaTvMFo3YKmFmQhkjDfTuJ9IXiZBzGZBhcNUrZB0ZD
             if (response.status === 'connected') {
                 const userAccessToken = response.authResponse.accessToken;
                 const appAccessToken = '159426692859019|rgVshl-dozUK0ZAZ41WAfAeP6K4'; // APP SECRET
                 const appId = '159426692859019';
-                fetch(`https://graph.facebook.com/${4408262549257958}?fields=access_token&access_token=${userAccessToken}`)
-                    .then(response => console.log(response))
-                    ;
+                console.log(userAccessToken);
+                try {
+                    fetch(`https://graph.facebook.com/${'4408262549257958'}?fields=access_token&access_token=${userAccessToken}`)
+                        .then(response => console.log(response))
+                        ;
+                } catch (error) {
+                    console.log(error);
+                }
             }
         });
     }
