@@ -12,6 +12,39 @@
     <h1>TEST GRAPH API FACEBOOK</h1>
 </body>
 
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '159426692859019',
+            cookie: true,
+            xfbml: true,
+            version: 'v11.0'
+        });
+
+        FB.AppEvents.logPageView();
+
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                // statusChangeCallback(response);
+                console.log(response);
+            });
+        }
+
+
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <script type="module" src="style.js"></script>
 
 </html>
